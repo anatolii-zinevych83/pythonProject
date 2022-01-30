@@ -1,16 +1,47 @@
-# This is a sample Python script.
+#importing random library
+import random
+#Generate 100 random numbers between 0 and 1000
+randomList = random.sample(range(0, 1000), 100)
+#print the list
+print(randomList)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+for i in range(len(randomList)):
+    for j in range(i + 1, len(randomList)):
+        if randomList[i] > randomList[j]:
+            higherNumber = randomList[i]
+            randomList[i] = randomList[j]
+            randomList[j] = higherNumber
+
+print(randomList)
+
+totalOddNumbers = 0
+countOddNumbers = 0
+i = 0
+
+for i in range(len(randomList)):
+
+    # checking condition
+    if (randomList[i] % 2) != 0:
+        totalOddNumbers += randomList[i]
+        countOddNumbers += 1
+# increment i
+i += 1
+avgOddNumber = totalOddNumbers/countOddNumbers
+print(avgOddNumber)
+
+totalEvenNumbers = 0
+countEvenNumbers = 0
+i = 0
+for i in range(len(randomList)):
+
+# checking condition
+    if (randomList[i] % 2) == 0:
+        totalEvenNumbers += randomList[i]
+        countEvenNumbers += 1
+# increment i
+        i += 1
+avgEvenNumber = totalEvenNumbers/countEvenNumbers
+print(avgEvenNumber)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
