@@ -9,32 +9,25 @@ text = """homEwork:
 
 	last iz TO calculate nuMber OF Whitespace characteRS in this Text. caREFULL, not only Spaces, but ALL whitespaces. I got 87."""
 text1 = text.lower()
-print(text1)
 my_list = text1.splitlines(True)
-print(my_list)
 
 new_list1 = []
 new_list1 = [my_list_item.replace('\t', '') for my_list_item in my_list]
-print(new_list1)
-new_list2 = [my_list_item.split('.') for my_list_item in new_list1]
-#print(new_list)
-print(new_list2)
-replaced = [item.capitalize() for item in new_list2]
-print(replaced)
+
+new_list2 = [new_list1_item.capitalize() for new_list1_item in new_list1]
+
+replaced_sentence = ' '.join(new_list2)
 
 
-replaced = re.sub(r'homework:', 'Homework:', my_list[1])
-
-replaced = re.sub(r'homework:', 'Homework:', text1)
-replaced = re.sub(r'this iz', 'This is', replaced)
-replaced = re.sub(r'you need', 'You need', replaced)
+replaced = re.sub(r'homework:', 'Homework:', replaced_sentence)
+replaced = re.sub(r'iz', 'is', replaced)
+replaced = re.sub(r'ise', 'ize', replaced)
 replaced = re.sub(r'also,', 'Also,', replaced)
-replaced = re.sub(r'it iz', 'It is', replaced)
-replaced = re.sub(r'fix', 'Fix ', replaced)
+replaced = re.sub(r'fix“is”', 'Fix “iz“', replaced)
 replaced = re.sub(r'n It', 'n it', replaced)
-replaced = re.sub(r'last iz', 'Last is', replaced)
-replaced = re.sub(r'carefull,', 'Carefully, ', replaced)
+replaced = re.sub(r'carefull,', 'Carefully,', replaced)
 replaced = re.sub(r'i got', 'I got', replaced)
+
 
 new_sentence_words = re.findall(r'\w*\.', replaced)
 new_sentence = ' '.join(new_sentence_words)
@@ -42,7 +35,7 @@ new_sentence1 = new_sentence.replace('.', '')
 
 new_text = replaced + new_sentence1
 new_text = re.sub(r'87.var', '87. Var', new_text)
-#print(new_text)
+print(new_text)
 
 count = 0
 
