@@ -39,9 +39,17 @@ for dictionary in my_list:
     for k, v in dictionary.items():
         #filling new dictionary with all values for each key
         new_dictionary.setdefault(k, []).append(v)
-
-#creating new dictionary with index of the dictionary and max value
-final_dictionary = {key+"_"+str(values.index(max(values))): max(values) for key, values in new_dictionary.items()}
+#defining empty dictionary
+final_dictionary = {}
+#walking through dictionary items
+for key, value in new_dictionary.items():
+    #if number of values for key is more than 1
+    if len(value) > 1:
+        #selecting maximum value for key and adding its index
+        final_dictionary[key+"_"+str(value.index(max(value))+1)] = max(value)
+    else:
+        #displaying key without index and value for this key
+        final_dictionary[key] = value[0]
 #printing final dictionary
 print(final_dictionary)
 
