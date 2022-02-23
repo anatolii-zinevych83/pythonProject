@@ -9,6 +9,21 @@ text = """homEwork:
 
 	last iz TO calculate nuMber OF Whitespace characteRS in this Text. caREFULL, not only Spaces, but ALL whitespaces. I got 87."""
 text1 = text.lower()
+print(text1)
+my_list = text1.splitlines(True)
+print(my_list)
+
+new_list1 = []
+new_list1 = [my_list_item.replace('\t', '') for my_list_item in my_list]
+print(new_list1)
+new_list2 = [my_list_item.split('.') for my_list_item in new_list1]
+#print(new_list)
+print(new_list2)
+replaced = [item.capitalize() for item in new_list2]
+print(replaced)
+
+
+replaced = re.sub(r'homework:', 'Homework:', my_list[1])
 
 replaced = re.sub(r'homework:', 'Homework:', text1)
 replaced = re.sub(r'this iz', 'This is', replaced)
@@ -27,7 +42,7 @@ new_sentence1 = new_sentence.replace('.', '')
 
 new_text = replaced + new_sentence1
 new_text = re.sub(r'87.var', '87. Var', new_text)
-print(new_text)
+#print(new_text)
 
 count = 0
 
